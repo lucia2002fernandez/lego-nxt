@@ -1,14 +1,14 @@
 void mover_tiempo (int tiempo, int velocidad, char sentido);
-
+void darvueltas (int tiempo, int velocidad, char sentido);
 
 task main(){
 
-    mover_tiempo(1000,75,'D');
-    mover_tiempo(1000,75,'A');
-
+    //mover_tiempo(1000,75,'D');
+    //mover_tiempo(1000,75,'A');
+      darvueltas(2000,75,'H');
 }
 
-//Sentido ser· D para delante, A para atr·s
+//Sentido ser√° D para delante, A para atr√°s
 void mover_tiempo (int tiempo, int velocidad, char sentido){
 
    if(sentido== 'D'){
@@ -19,6 +19,10 @@ void mover_tiempo (int tiempo, int velocidad, char sentido){
           Wait(tiempo);
    }
 
-               
 }
 
+void darvueltas (int tiempo, int velocidad, char sentido) {
+
+ OnFwd(OUT_C,velocidad);
+ OnRev(OUT_B,velocidad);
+ Wait(tiempo);
