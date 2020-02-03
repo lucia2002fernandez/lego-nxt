@@ -1,11 +1,16 @@
 void mover_tiempo (int tiempo, int velocidad, char sentido);
 void darvueltas (int tiempo, int velocidad, char sentido);
 
+//Salida C: rueda izquierda//
+//Salida B: rueda derecha://
+
 task main(){
 
     //mover_tiempo(1000,75,'D');
     //mover_tiempo(1000,75,'A');
       darvueltas(2000,75,'H');
+      darvueltas(2000,75,'A');
+      
 }
 
 //Sentido será D para delante, A para atrás
@@ -21,8 +26,19 @@ void mover_tiempo (int tiempo, int velocidad, char sentido){
 
 }
 
+
 void darvueltas (int tiempo, int velocidad, char sentido) {
 
- OnFwd(OUT_C,velocidad);
- OnRev(OUT_B,velocidad);
+    if (sentido== 'H') {
+        //sentido horario (H)//
+          OnFwd(OUT_C,velocidad);
+           OnRev(OUT_B,velocidad);
+            Wait(tiempo);
+}
+else{
+ //sentido horario (A)//
+ OnFwd(OUT_B,velocidad);
+ OnRev(OUT_C,velocidad);
  Wait(tiempo);
+}
+}
