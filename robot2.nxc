@@ -8,9 +8,17 @@ task main(){
 
     //mover_tiempo(1000,75,'D');
     //mover_tiempo(1000,75,'A');
-      darvueltas(2000,75,'H');
-      darvueltas(2000,75,'A');
-      
+    
+    
+    
+    
+    int velocidad =5;
+    do{
+      darvueltas(500,velocidad,'H');
+      velocidad = velocidad + 5;
+      }while (velocidad <= 100);
+   
+  
 }
 
 //Sentido será D para delante, A para atrás
