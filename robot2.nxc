@@ -1,24 +1,24 @@
 void mover_tiempo (int tiempo, int velocidad, char sentido);
 void darvueltas (int tiempo, int velocidad, char sentido);
+void girar (int tiempo, int velocidad, char mov, char izcder);
 
 //Salida C: rueda izquierda//
-//Salida B: rueda derecha://
+//Salida B: rueda derecha//
 
 task main(){
 
     //mover_tiempo(1000,75,'D');
     //mover_tiempo(1000,75,'A');
-    
-    
-    
-    
-    int velocidad =5;
+
+    girar(9000,75,'D','L');
+
+    /*int velocidad =5;
     do{
       darvueltas(500,velocidad,'H');
       velocidad = velocidad + 5;
       }while (velocidad <= 100);
-   
-  
+   */
+
 }
 
 //Sentido será D para delante, A para atrás
@@ -48,5 +48,36 @@ else{
  OnFwd(OUT_B,velocidad);
  OnRev(OUT_C,velocidad);
  Wait(tiempo);
+}
+
+
+}
+
+void girar (int tiempo, int velocidad, char mov, char izcder){
+if(mov == 'D'){
+       if(izcder == 'L'){
+                 OnFwd(OUT_B, velocidad);
+                 OnFwd(OUT_C, velocidad/2);
+                 Wait(tiempo);
+       }
+
+else{
+OnFwd(OUT_C, velocidad);
+OnFwd(OUT_B, velocidad/2);
+Wait(tiempo);
+ }
+}
+else{
+if(izcder == 'L'){
+
+OnRev(OUT_B, velocidad);
+OnRev(OUT_C, velocidad/2);
+Wait(tiempo);
+}
+else{
+ OnRev(OUT_C, velocidad);
+OnRev(OUT_B, velocidad/2);
+Wait(tiempo);
+}
 }
 }
